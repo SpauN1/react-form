@@ -1,15 +1,17 @@
+@import '../../../styles/variables.scss';
+
 .myInput {
   display: block;
   width: 100%;
   height: 44px;
   border-radius: 4px;
-  border: 1px solid white;
+  border: 1px solid $white;
   padding: 10px 15px;
   margin-bottom: 10px;
   font-size: 14px;
 
   &:focus {
-    border: 1px solid rgb(54, 204, 41);
+    border: 1px solid $greenColor;
   }
 }
 
@@ -17,15 +19,15 @@
   line-height: 1;
   text-align: left;
   display: block;
-  margin-top: 40px;
-  color: white;
+  margin-bottom: 40px;
+  color: $white;
 
   h3 {
     font-size: 16px;
-    color: white;
+    color: $white;
     text-align: center;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgb(79, 98, 148);
+    border-bottom: 1px solid $blueColor;
     margin-bottom: 20px;
   }
 }

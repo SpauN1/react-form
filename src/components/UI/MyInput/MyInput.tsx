@@ -1,23 +1,17 @@
-import { FC } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 
 import styles from './MyInput.module.scss';
 
-interface IMyInput {
+interface IMyInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  placeholder: string;
-  type: string;
 }
 
-export const MyInput: FC<IMyInput> = ({ label, placeholder, type }) => {
+export const MyInput: FC<IMyInputProps> = ({ label, ...props }) => {
   return (
     <>
       <label className={styles.label}>
         <h3>{label}</h3>
-        <input
-          placeholder={placeholder}
-          type={type}
-          className={styles.myInput}
-        />
+        <input {...props} className={styles.myInput} />
       </label>
     </>
   );
