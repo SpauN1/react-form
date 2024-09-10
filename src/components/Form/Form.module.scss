@@ -1,4 +1,36 @@
+@import '../../styles//variables.scss';
+
 .form {
   width: 500px;
   margin: 0 auto;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 480px) {
+    gap: 8px;
+  }
+}
+
+.formButtonLarge {
+  flex: 6;
+  background: $bgButtonLargeHover;
+  color: $white;
+
+  &:hover {
+    background: $bgButtonLarge;
+  }
+}
+
+.formButtonSmall {
+  flex: 4;
+  background: $bgButtonSmall;
+  color: $white;
+
+  &:hover {
+    background: $bgButtonSmallHover;
+  }
 }
