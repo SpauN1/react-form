@@ -21,7 +21,7 @@
   color: $white;
 
   &:hover {
-    background: $bgButtonLarge;
+    background: lighten($bgButtonLargeHover, 15%);
   }
 }
 
@@ -31,6 +31,6 @@
   color: $white;
 
   &:hover {
-    background: $bgButtonSmallHover;
+    background: lighten($bgButtonSmallHover, 5%);
   }
 }

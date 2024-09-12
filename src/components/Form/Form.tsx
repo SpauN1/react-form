@@ -11,6 +11,7 @@ export const Form: FC = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IForm>({
     mode: 'onChange',
@@ -19,6 +20,11 @@ export const Form: FC = () => {
   const onSubmit: SubmitHandler<IForm> = (data) => {
     alert(JSON.stringify(data));
     console.log(data);
+    reset();
+  };
+
+  const handleReset = () => {
+    reset();
   };
 
   return (
@@ -50,8 +56,16 @@ export const Form: FC = () => {
         error={errors.password?.message}
       />
       <div className={styles.buttonGroup}>
-        <MyButton className={styles.formButtonLarge}>Отправить</MyButton>
-        <MyButton className={styles.formButtonSmall}>Очистить</MyButton>
+        <MyButton type="submit" className={styles.formButtonLarge}>
+          Отправить
+        </MyButton>
+        <MyButton
+          type="button"
+          className={styles.formButtonSmall}
+          onClick={handleReset}
+        >
+          Очистить
+        </MyButton>
       </div>
     </form>
   );
