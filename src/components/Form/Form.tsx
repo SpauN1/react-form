@@ -1,8 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+
 import styles from './Form.module.scss';
-import { MyInput } from '../UI/MyInput/MyInput';
-import { MyButton } from '../UI/MyButton/MyButton';
+
+import { CustomInput } from '../UI/CustomInput/CustomInput';
+import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { IForm } from '../../models/form';
 
 export const Form: FC = () => {
@@ -39,7 +41,7 @@ export const Form: FC = () => {
 
   return (
     <form noValidate onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <MyInput
+      <CustomInput
         {...register('email', {
           required: 'Введите email',
           pattern: {
@@ -52,7 +54,7 @@ export const Form: FC = () => {
         type="email"
         error={errors.email?.message}
       />
-      <MyInput
+      <CustomInput
         {...register('password', {
           required: 'Введите пароль',
           minLength: {
@@ -66,21 +68,21 @@ export const Form: FC = () => {
         error={errors.password?.message}
       />
       <div className={styles.buttonGroup}>
-        <MyButton
+        <CustomButton
           type="submit"
           className={styles.formButtonLarge}
           disabled={isDisabled}
         >
           Отправить
-        </MyButton>
-        <MyButton
+        </CustomButton>
+        <CustomButton
           type="reset"
           className={styles.formButtonSmall}
           onClick={handleReset}
           disabled={isDisabled}
         >
           Очистить
-        </MyButton>
+        </CustomButton>
       </div>
     </form>
   );
