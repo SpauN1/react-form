@@ -1,8 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-
 import styles from './Form.module.scss';
-
 import { MyInput } from '../UI/MyInput/MyInput';
 import { MyButton } from '../UI/MyButton/MyButton';
 import { IForm } from '../../models/form';
@@ -17,11 +15,23 @@ export const Form: FC = () => {
     mode: 'onChange',
   });
 
-  const onSubmit: SubmitHandler<IForm> = (data) => {
-    alert(JSON.stringify(data));
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log(data);
-    reset();
+    setIsDisabled(true);
   };
+
+  useEffect(() => {
+    if (isDisabled) {
+      const timer = setTimeout(() => {
+        reset();
+        setIsDisabled(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isDisabled, reset]);
 
   const handleReset = () => {
     reset();
@@ -56,13 +66,18 @@ export const Form: FC = () => {
         error={errors.password?.message}
       />
       <div className={styles.buttonGroup}>
-        <MyButton type="submit" className={styles.formButtonLarge}>
+        <MyButton
+          type="submit"
+          className={styles.formButtonLarge}
+          disabled={isDisabled}
+        >
           Отправить
         </MyButton>
         <MyButton
-          type="button"
+          type="reset"
           className={styles.formButtonSmall}
           onClick={handleReset}
+          disabled={isDisabled}
         >
           Очистить
         </MyButton>
