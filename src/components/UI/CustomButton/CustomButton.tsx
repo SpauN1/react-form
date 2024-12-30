@@ -3,12 +3,12 @@ import clsx from 'clsx';
 
 import styles from './CustomButton.module.scss';
 
-interface IMyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ICustomButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
 }
 
-export const CustomButton: FC<IMyButtonProps> = ({
+export const CustomButton: FC<ICustomButton> = ({
   children,
   className,
   disabled,

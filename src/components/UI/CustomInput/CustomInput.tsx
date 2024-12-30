@@ -6,13 +6,13 @@ import styles from './CustomInput.module.scss';
 
 import { IForm } from '../../../models/form';
 
-export interface IMyInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface ICustomInput extends InputHTMLAttributes<HTMLInputElement> {
   register?: UseFormRegister<IForm>;
   label: string;
   error?: string;
 }
 
-export const CustomInput = forwardRef<HTMLInputElement, IMyInputProps>(
+export const CustomInput = forwardRef<HTMLInputElement, ICustomInput>(
   ({ label, error, ...props }, ref) => {
     return (
       <label className={styles.label}>
