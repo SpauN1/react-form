@@ -12,3 +12,7 @@
 - **React-hook-form**
 - **Clsx**
 
+## ⚙️ Setup project
+1:  Клонировать этот репозиторий ```https://github.com/SpauN1/react-form.git```  
+2:  Установить все зависимости ```npm install```  
+3:  Запустить проект командой ```npm start``` 
